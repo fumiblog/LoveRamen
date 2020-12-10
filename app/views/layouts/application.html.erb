@@ -11,15 +11,15 @@
   <body>
     <header class="navbar navbar-fixed-top navbar-inverse">
         <nav class="nav navbar-nav navbar-left">
-          <span class="title">しぇからしか〜、ラーメン行くばい</span>
+          <span class="title">しぇからしか〜、ラーメン<%= link_to "屋", new_admin_session_path %>行くばい</span>
         </nav>
        <nav>
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Home", root_path, {class: "glyphicon glyphicon-flash flash"} %></li>
               <li><%= link_to "マイページ", root_path, {class: "glyphicon glyphicon-home home"} %></li>
-              <li><%= link_to "商品一覧", root_path, {class: "glyphicon glyphicon-book book"} %></li>
-              <li><%= link_to "カート", root_path, {class: "glyphicon glyphicon-book book"} %></li>
-              <li>←これがリンク！<%#= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
+              <li><%= link_to "ログイン", new_user_session_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "サインアップ", new_user_registration_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
           </ul>
         </nav>
     </header>
