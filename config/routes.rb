@@ -18,5 +18,18 @@ Rails.application.routes.draw do
   
   get 'homes/top'
   root 'homes#top'
+  
+  namespace 'admins' do
+    resources :genres, only: [:index, :create, :show, :edit, :update]
+    resources :users, only: [:index]
+    resources :ramenshops, only: [:new, :index, :create, :edit, :update]
+    resources :posts, only: [:index]
+  end
+  
+  namespace 'users' do
+    resources :users, only: [:new, :create, :edit, :update]
+    resources :posts, only: [:new, :create, :index, :edit, :update]
+    resources :nices, only: [:new, :create, :index, :edit, :update]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
