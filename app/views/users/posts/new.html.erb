@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <h3>美味しいラーメン投稿</h3>
+        <%= form_with model: @post, url: users_posts_path, local: true do |f| %>
+        <div class="body">
+            何処のラーメン？：<%= f.collection_select :ramenshop_id, @ramenshops, :id, :name, include_blank: "ラーメン店を選んで下さい" %></br>
+            ここね</br>
+            <%= attachment_image_tag @ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %>
+            
+        </div>
+ 
+    </div>
+    <% end %>
+
+</div>

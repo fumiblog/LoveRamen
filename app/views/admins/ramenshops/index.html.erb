@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <h3>ラーメンショップ</h3></br></br>
+        <%= form_with model: @ramenshop, url: admins_ramenshops_path, local: true do |f| %>
+        <div class="ramenshopnew">
+            ラーメン店名
+            <%= f.text_field :name %>
+            <%= f.submit '追加', class: 'btn btn-primary' %>
+        </div>
+        <% end %>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ラーメン店名</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @ramenshops.each do |ramenshop| %>
+                <tr>
+                    <td scope="row"><%= attachment_image_tag ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+                    <td scope="row"><%= ramenshop.name %></td>
+                    <td><%= link_to "編集", edit_admins_ramenshop_path(ramenshop), class: "btn btn-success" %></td>
+                    <td><%= link_to "削除", admins_ramenshop_path(ramenshop), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

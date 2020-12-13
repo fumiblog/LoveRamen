@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <%= form_with model: @user, url: users_user_path(@user), local: true do |f| %>
+        <% if @user.genre_id == nil %>
+            <h3>好きなジャンルは無いのですね、<%= current_user.name %>さん</h3>
+            <%= link_to "好きなジャンルを選びたい", edit_users_user_path(@user), class: "btn btn-success" %>
+        <% else %>
+            <h3><%= @user.genre.name %>を応援する<%= current_user.name %>さんの情報</h3>
+            <%= link_to "好きなジャンルを変更する", edit_users_user_path(@user), class: "btn btn-success" %>
+        <% end %>
+    </div>
+    <% end %>
+</div>
