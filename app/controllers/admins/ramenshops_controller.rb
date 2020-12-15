@@ -1,7 +1,11 @@
 class Admins::RamenshopsController < ApplicationController
   def index
     @ramenshop = Ramenshop.new
+    @posts = Post.group(:ramenshop_id).count
+    # byebug
+    # @ramenshops = Ramenshop.all.left_joins(:posts).group(:ramenshop_id).select('ramenshops.*, COUNT(`posts`.`user_id`) AS posts_count')
     @ramenshops = Ramenshop.all
+    # @posts = Post.all
   end
 
   def create

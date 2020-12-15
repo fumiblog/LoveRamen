@@ -13,8 +13,9 @@
                 <tr>
                     <th scope="col"></th>
                     <th scope="col">ラーメン店名</th>
+                    <th scope="col">投稿数</th>
                     <th scope="col"></th>
-                    <th scope="col"></th></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,7 @@
                 <tr>
                     <td scope="row"><%= attachment_image_tag ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
                     <td scope="row"><%= ramenshop.name %></td>
+                    <td scope="row"><%= ramenshop.posts.count %></td>
                     <td><%= link_to "編集", edit_admins_ramenshop_path(ramenshop), class: "btn btn-success" %></td>
                     <td><%= link_to "削除", admins_ramenshop_path(ramenshop), method: :delete, data: { confirm: "本当に削除しますか？"}, class: "btn btn-danger" %></td>
                 </tr>

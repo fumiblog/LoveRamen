@@ -1,0 +1,9 @@
+ja:
+    enums:
+        post:
+            submenu:
+                thats_all: ラーメンのみ
+                rice: ご飯
+                fried_rice: 炒飯
+                gyouza: 餃子
+                

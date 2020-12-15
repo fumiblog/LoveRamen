@@ -28,8 +28,10 @@ Rails.application.routes.draw do
 
   namespace 'users' do
     resources :users, only: [:new, :create, :edit, :update, :show]
-    resources :posts, only: [:new, :create, :index, :edit, :update, :delete]
-    resources :nices, only: [:new, :create, :index, :edit, :update]
+    resources :posts, only: [:new, :create, :index, :edit, :update, :destroy, :show]
+    resources :ramenshops, only: [:index, :show] do
+      resource :nices, only: [:create, :destroy]
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

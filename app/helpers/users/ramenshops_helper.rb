@@ -1,0 +1,2 @@
+module Users::RamenshopsHelper
+end

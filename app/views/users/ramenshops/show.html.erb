@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <h2><%= @ramenshop.name %>　の情報</h2></br></br>
+        <%= form_with model:@ramenshop, url: users_ramenshops_path, local: true do |f| %>
+            <%= attachment_image_tag @ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "autox200" %>
+        <% end %>
+        <div class="post">
+            <div class="card-deck" style="width: 18rem">
+                <% @posts.each do |post| %>
+                <div class="card">
+                    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text"><%= post.comment %></p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                      </div>
+                    </div>
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

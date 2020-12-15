@@ -13,6 +13,7 @@ class Users::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @posts = Post.where(genre_id: @user.genre_id)
     # byebug
   end
 

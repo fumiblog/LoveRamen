@@ -4,12 +4,49 @@
         <%= form_with model: @post, url: users_posts_path, local: true do |f| %>
         <div class="body">
             何処のラーメン？：<%= f.collection_select :ramenshop_id, @ramenshops, :id, :name, include_blank: "ラーメン店を選んで下さい" %></br>
-            ここね</br>
-            <%= attachment_image_tag @ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %>
-            
+            </br>
+            <!--<script src="display.js"></script>-->
+            <%= attachment_image_tag @ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "100x100" %></br>
+            <%= f.attachment_field :image %>
+
+            <p class="is-size-4 mb-3">投稿する</p>
+
+            <div class="taating-box mt-3">
+                <div class="main-rating">
+                    <div class="ratings mb-3">
+                        <span class="fa fa-star-o" id="star"></span>
+                        <span class="fa fa-star-o" id="star"></span>
+                        <span class="fa fa-star-o" id="star"></span>
+                        <span class="fa fa-star-o" id="star"></span>
+                        <span class="fa fa-star-o" id="star"></span>
+                    </div>
+                    <div class="ml-3 rating-value-display"><span id="rating-value-display">0</span>/5</div>
+                </div>
+                <%= f.hidden_field :score, id: "rating-value" %>
+                <div class="content">
+                    商品名：</br>
+                    <%= f.text_field :name, class: "namearea" %></br>
+                    あなたが思う分類：</br>
+                    <%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "分類を選んで下さい" %></br>
+                    一緒に食べた：</br>
+                    <%= f.select :submenu, Post.submenus_i18n.invert %></br>
+                    コメント：</br>
+                    <%= f.text_field :comment, class: "textarea" %></br></br>
+                    <%= f.submit "保存", class: "button mt-3" %>
+                </div>
+            </div>
         </div>
- 
+
     </div>
     <% end %>
+    <script>
+        // $(function(){
+        //   $("#f.collection_select").change(function(){
+        //     $("#submit_form").submit();
+        //   });
+        // });
+    </script>
 
 </div>
+
+<%= javascript_include_tag "posts.js" %>

@@ -83,3 +83,4 @@ end
 gem 'ransack'
 
 gem 'rubocop-airbnb'
+

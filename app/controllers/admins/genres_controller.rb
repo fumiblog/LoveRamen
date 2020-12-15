@@ -2,6 +2,8 @@ class Admins::GenresController < ApplicationController
   def index
     @genre = Genre.new
     @genres = Genre.all
+    @star = Post.joins(:genre).group("sum.score")
+    # byebug
   end
 
   def create

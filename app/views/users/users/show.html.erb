@@ -7,7 +7,22 @@
         <% else %>
             <h3><%= @user.genre.name %>を応援する<%= current_user.name %>さんの情報</h3>
             <%= link_to "好きなジャンルを変更する", edit_users_user_path(@user), class: "btn btn-success" %>
+            <%= link_to "いいたかことがある", new_users_post_path, class: "btn btn-danger" %>
         <% end %>
     </div>
     <% end %>
+    <h4>貴方の応援する「<%= @user.genre.name %>」コメント一覧</h4></br></br>
+    
+    
+    <div class="card" style="width: 18rem;">
+        <% @posts.each do |post| %>
+        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"/><text x="50%" y="50%" fill="#dee2e6" dy=".3em"><%= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></text></svg>
+        <div class="card-body">
+            <h5 class="card-title"><%= post.ramenshop.name %></h5>
+            <p class="card-text"><%= post.comment %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <% end %>
+    </div>
+    
 </div>

@@ -7,5 +7,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  def already_nice?(ramenshop)
+    self.nices.exists?(ramenshop_id: ramenshop.id)
+  end
 end

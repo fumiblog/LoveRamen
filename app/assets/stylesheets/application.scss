@@ -16,6 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 .title {
     color: gray;
     margin-left: 10px;
@@ -24,4 +25,13 @@
 .row {
     text-align: center;
     margin-top: 100;
+}
+
+.textarea {
+    width: 200px;
+    height: 100px;
+}
+
+.namearea {
+    width: 200;
 }
