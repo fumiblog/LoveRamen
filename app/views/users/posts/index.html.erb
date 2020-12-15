@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+        <h3>投稿一覧</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>順位</th>
+              <th>店舗名</th>
+              <th>投稿数</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @stores.each_with_index do |store, i| %>
+            <tr>
+                <td><%= i + 1 %></td>
+                <td><%= store.first %></td>
+                <td><%= store.second %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Shop</th>
+                    <th scope="col">お写真</th>
+                    <th scope="col">投稿者</th>
+                    <th scope="col">分類名</th>
+                    <th scope="col">一緒に食べた</th>
+                    <th scope="col">コメント</th>
+                    <th scope="col">削除します？</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @posts.each_with_index do |post, i| %>
+                <tr>
+                    <td scope="row"><%= post.ramenshop.name + "(" + post.ramenshop.posts.count.to_s + ")" %></td>
+
+                    <td scope="row"><%= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %></td>
+                    <td scope="row"><%= post.user.name %></td>
+                    <td scope="row"><%= post.genre.name %></td>
+                    <td scope="row"><%= post.submenu_i18n %></td>
+                    <td scope="row"><%= post.comment %></td>
+                    <td scope="row">
+                        <% if post.user_id == current_user.id %>
+                            <%= link_to "削除", users_post_path(post), method: :delete %>
+                        <% else %>
+                            削除はできません。
+                        <% end %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

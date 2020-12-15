@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <h3>ラーメンショップ</h3></br></br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">ラーメン店名</th>
+                    <th scope="col">投稿数</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @ramenshops.each do |ramenshop| %>
+                <tr>
+                    <td scope="row">
+                        <%= link_to users_ramenshop_path(ramenshop) do %>
+                            <%= attachment_image_tag ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %>
+                        <% end %>
+                    </td>
+                    <td scope="row"><%= link_to ramenshop.name, users_ramenshop_path(ramenshop) %></td>
+                    <td scope="row"><%= ramenshop.posts.count %></td>
+                    <td>
+                        <% if current_user.already_nice?(ramenshop) %>
+                            <%= link_to users_ramenshop_nices_path(ramenshop), method: :delete do %>
+                                <i class="fas fa-heart"></i>
+                            <% end %>
+                        <% else %>
+                            <%= link_to users_ramenshop_nices_path(ramenshop), method: :post do %>
+                                <i class="far fa-heart"></i>
+                            <% end %>
+                        <% end %>
+                        <%= ramenshop.nices.count %>
+                    </td>
+                    <td></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

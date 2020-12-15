@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <h3>ラーメンショップ編集</h3></br></br>
+        <%= form_with model: @ramenshop, url: admins_ramenshop_path(@ramenshop), local: true do |f| %>
+        <%= attachment_image_tag @ramenshop, :image, format: 'jpg', fallback: "no_image.jpg", size: "300x300" %>
+        <%= f.attachment_field :image %>
+        <tr class="box"><td>店舗名</td><td><%= f.text_field :name, :size=> "20" %></td></tr>
+      <div class="switch_left"><%= f.submit "編集を保存する",  class:"btn btn-primary" %></div>
+      <% end %>
+  </div>
+</div>

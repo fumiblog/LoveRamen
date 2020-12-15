@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://kit.fontawesome.com/35ef487505.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -16,7 +17,11 @@
        <nav>
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Home", root_path, {class: "glyphicon glyphicon-flash flash"} %></li>
-              <li><%= link_to "マイページ", root_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "分類", admins_genres_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "ラーメンショップ", admins_ramenshops_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "投稿", new_users_post_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "投稿一覧", users_posts_path, {class: "glyphicon glyphicon-book book"} %></li>
+              <li><%= link_to "ユーザー", admins_users_path, {class: "glyphicon glyphicon-book book"} %></li>
               <li><%= link_to "ログイン", new_user_session_path, {class: "glyphicon glyphicon-book book"} %></li>
               <li><%= link_to "サインアップ", new_user_registration_path, {class: "glyphicon glyphicon-book book"} %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out log-out" %></li>
