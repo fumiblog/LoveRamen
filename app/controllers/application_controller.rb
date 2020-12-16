@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
         when User
             edit_users_user_path(current_user)
         when Admin
-            admins_homes_top_path
+            admins_ramenshops_path
         end
     end
 
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
         when :user
             root_path
         when :admin
-            new_admins_session_path
+             new_admin_session_path
         end
     end
 
