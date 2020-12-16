@@ -1,5 +1,5 @@
 class Users::UsersController < ApplicationController
-  
+
   def edit
     @user = User.find(params[:id])
     @genres = Genre.all
@@ -8,6 +8,7 @@ class Users::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    UserMailer.published_email(@user).deliver
     redirect_to users_user_path(@user)
   end
 
