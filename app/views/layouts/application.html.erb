@@ -24,7 +24,7 @@
        <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-              <li><%= link_to "Home", root_path, {class: "glyphicon glyphicon-home home"} %></li>
+              <li><%= link_to "Home", users_user_path(current_user), {class: "glyphicon glyphicon-home home"} %></li>
               <li><%= link_to "ラーメンショップ", users_ramenshops_path, {class: "glyphicon glyphicon-cutlery cutlery"} %></li>
               <li><%= link_to "投稿", new_users_post_path, {class: "glyphicon glyphicon-flash flash"} %></li>
               <li><%= link_to "投稿一覧", users_posts_path, {class: "glyphicon glyphicon-book book"} %></li>

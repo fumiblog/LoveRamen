@@ -1,3 +1,33 @@
 // Place all the styles related to the users/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@madia screen and (min-width: 767px) 　//pc用に作成
+
+.row {
+    text-align: center;
+    margin-top: 100;
+}
+
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.subtitle {
+    text-align: center;
+}
+
+// @media screen and (min-width: 481px) {
+//     .row {
+//         margin-top: 400px;
+//     }
+    
+//     .card {
+//         width: 100%;
+//     }
+//     .card-body {
+//         max-width: 640px;
+//     }
+// }

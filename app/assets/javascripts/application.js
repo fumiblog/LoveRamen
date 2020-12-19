@@ -16,3 +16,12 @@
 //= require jquery
 //= require bootstrap-sprockets
 
+
+    $(window).on('load resize', function(){
+    var height = $('.navbar.navbar-fixed-top.navbar-inverse').height();
+    $('row').css('padding-top', height);
+    });
+
+    
+
+

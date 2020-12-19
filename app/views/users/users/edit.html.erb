@@ -7,7 +7,7 @@
             <tr><td>ネーム：</td><td><%= f.text_field :name, placeholder: "ニックネームでもいいよ", style: "border: none" %></td></tr></br>
             <tr><td>メール：</td><td><%= f.email_field :email, placeholder: "変えてもいいよ", style: "border: none" %></td></tr></br>
             <%= f.submit "分類や内容を変える" %>
-            <%= link_to "やっぱ変えん", users_user_path(@user)  %>
+            <%= link_to "やっぱ変えん", users_user_path(@user) %>
         </div>
         </div>
         <% end %>
