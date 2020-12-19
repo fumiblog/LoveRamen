@@ -21,7 +21,6 @@
         <div class="card" style="width: auto;">
             <% @posts.each do |post| %>
             <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%", image="<%#= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %>"/></svg>-->
-            
             <div class="card-body">
                 <%= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "200x200" %>
                 <h5 class="card-title"><%= post.ramenshop.name %></h5>

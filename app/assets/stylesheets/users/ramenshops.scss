@@ -1,12 +1,15 @@
 // Place all the styles related to the users/ramenshops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.card-deck {
-    display: flex;
+@madia screen and (min-width: 767px) 　//pc用に作成
+
+.row {
+    text-align: center;
+    margin-top: 100;
 }
 
 .card {
-    position: relative;
-    width: 200px;
-    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center
 }
