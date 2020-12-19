@@ -1,3 +1,7 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+</head>
+
 <div class="container">
     <div class="row">
         <%= form_with model: @user, url: users_user_path(@user), local: true do |f| %>
@@ -11,18 +15,20 @@
         <% end %>
     </div>
     <% end %>
-    <h4>貴方の応援する「<%= @user.genre.name %>」コメント一覧</h4></br></br>
+    <div class="subtitle"><h4>貴方の応援する「<%= @user.genre.name %>」コメント一覧</h4></div></br></br>
     
-    
-    <div class="card" style="width: 18rem;">
-        <% @posts.each do |post| %>
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%", image="<%= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %>"/></svg>
-        <div class="card-body">
-            <h5 class="card-title"><%= post.ramenshop.name %></h5>
-            <p class="card-text"><%= post.comment %></p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <% end %>
-    </div>
-    
+    <!--<div class="col-xs-3 col-sm-12">-->
+        <div class="card" style="width: auto;">
+            <% @posts.each do |post| %>
+            <!--<svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect width="100%" height="100%", image="<%#= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "50x50" %>"/></svg>-->
+            
+            <div class="card-body">
+                <%= attachment_image_tag post, :image, format: 'jpg', fallback: "no_image.jpg", size: "200x200" %>
+                <h5 class="card-title"><%= post.ramenshop.name %></h5>
+                <p class="card-text"><%= post.comment %></p>
+                <a href="#" class="btn btn-primary"><%= post.user.name %>様(投稿数：<%= post.user.posts.count.to_s %>）</a>
+            </div>
+            <% end %>
+        </div>        
+    <!--</div>-->
 </div>
